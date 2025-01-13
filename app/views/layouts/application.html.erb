@@ -10,7 +10,25 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-dark">
+    <header class="d-flex justify-content-between p-3 bg-dark">
+      <h1><%= link_to "Blogapp", root_path, class: 'text-decoration-none text-dark' %> </h1>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="list-group list-group-horizontal">
+          <% unless user_signed_in? %>
+            <li class="list-group-item"><%= link_to 'Criar sua conta', new_user_registration_path %></li>
+            <li class="list-group-item"><%= link_to 'Entrar', new_user_session_path %></li>
+          <% else %>
+            <li class="list-group-item text-white bg-success"><%= current_user.name %></li>
+            <li class="list-group-item"><%= link_to 'Novo Post', new_post_path %></li>
+            <li class="list-group-item"><%= link_to 'Sair', destroy_user_session_path, data: { turbo_method: :delete } %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="bg-light">
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2><%= @post.title %></h2>
+      <p><%= link_to "Editar", edit_post_path if @post.user == current_user%>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= @post.body %></p>
+    </div>
+    <div class="card-footer text-muted">
+      <p>Posted on <%= @post.created_at.strftime("%B %d, %Y") %> by <%= @post.user.name %></p>
+    </div>
+  </div>
+</div>
