@@ -10,8 +10,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-dark">
-    <header class="d-flex justify-content-between p-3 bg-dark">
+  <body class="bg-light">
+    <header class="d-flex justify-content-between p-3 bg-white border-bottom shadow-sm">
       <h1><%= link_to "Blogapp", root_path, class: 'text-decoration-none text-dark' %> </h1>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="list-group list-group-horizontal">
@@ -27,7 +27,7 @@
       </nav>
     </header>
 
-    <main class="bg-light">
+    <main class="bg-white container mt-4 p-3 rounded border shadow-lg">
       <%= yield %>
     </main>
   </body>
