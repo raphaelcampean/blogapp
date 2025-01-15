@@ -1,0 +1,14 @@
+<%= form_with model: Comment.new, local: false do |form| %>
+  <div class="form-group">
+    <%= form.text_area :body, class: "form-control", placeholder: "Escreva seu comentário..." %>
+  </div>
+  
+  <%= form.hidden_field :commentable_type, value: model.class.name %>
+  <%= form.hidden_field :commentable_id, value: model.id %>
+
+  <%= form.hidden_field :parent_id, value: model.id if is_model?(model) %>
+
+  <div class="form-group d-flex justify-content-end mt-2">
+    <%= form.submit "Comentar", class: "btn btn-outline-primary" %>
+  </div>
+<% end %>

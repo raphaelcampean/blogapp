@@ -1,0 +1,7 @@
+<%= turbo_stream.update "comment_form" do %>
+  <%= render partial: "form", locals: { model: find_post(params[:]) } %>
+<% end %>
+
+<%= turbo_stream.update "comment_area" do %>
+  <%= render partial: "comments/comments", locals: { comments: @post.comments } %>
+<% end %>

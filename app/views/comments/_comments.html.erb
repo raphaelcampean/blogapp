@@ -1,0 +1,12 @@
+<% comments.sort_by(&:created_at).reverse.each do |comment| %>
+  <div class="card bg-white p-3 mb-3 shadow-sm">
+    <p><strong><%= comment.user.name %>:</strong> <%= comment.body %></p>
+
+    <div class="d-flex justify-content-end">
+      <%= link_to "Responder", new_comment_path(comment: comment, post: @post), class: "btn btn-outline-primary btn-sm", data: { turbo_stream: true } %>
+    </div>
+
+    <%= turbo_frame_tag "comment_section" %>
+    <%= render partial: "comments/comments", locals: { comments: comment.replies } %>
+  </div>
+<% end %>

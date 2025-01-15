@@ -1,0 +1,3 @@
+<%= turbo_stream.update "comment_section" do %>
+  <%= render partial: "comments/form", locals: { model: comment_model(params[:comment]), parent: comment_model(params[:comment]), post: which_post(params[:post]) } %>
+<% end %>
