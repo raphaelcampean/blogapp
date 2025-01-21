@@ -6,4 +6,12 @@ module ApplicationHelper
   def which_post(post)
     post = Post.find(post)
   end
+
+  def find_post(id)
+    Post.find(id)
+  end
+
+  def find_comment(id)
+    Comment.find(id)
+  end
 end

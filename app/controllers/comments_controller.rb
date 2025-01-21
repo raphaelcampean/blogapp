@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
         format.turbo_stream
       end
     else
-      redirect_to post_path(params[:comment][:post_id]), alert: 'Erro ao criar comentário.'
+      redirect_to post_path(@comment.post_id), alert: 'Erro ao criar comentário.'
     end
   end
 

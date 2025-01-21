@@ -5,6 +5,7 @@
   
   <%= form.hidden_field :commentable_type, value: model.class.name %>
   <%= form.hidden_field :commentable_id, value: model.id %>
+  <%= form.hidden_field :post_id, value: model.id %>
 
   <%= form.hidden_field :parent_id, value: model.id if is_model?(model) %>
 
