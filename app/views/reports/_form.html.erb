@@ -1,0 +1,14 @@
+<h1>Denunciar Comentário</h1>
+
+<%= form_with model: [@comment, @report], local: true do |f| %>
+  <div>
+    <%= f.label :reason, "Motivo da denúncia" %>
+    <%= f.select :reason, Report.reasons.keys.map { |reason| [reason.humanize, reason] }, { prompt: "Selecione um motivo" }, required: true %>
+  </div>
+
+  <div>
+    <%= f.submit "Enviar Denúncia", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar", posts_path(@comment.post_id), class: "btn btn-secondary" %>

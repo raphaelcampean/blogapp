@@ -1,0 +1,28 @@
+<h1>Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Reason</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.id %></td>
+        <td><%= report.reason %></td>
+        <td><%= report.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td>
+          <%= link_to 'Show', admin_report_path(report) %> |
+          <%= link_to 'Edit', edit_admin_report_path(report) %> |
+          <%= link_to 'Delete', admin_report_path(report), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Report', new_admin_report_path %>

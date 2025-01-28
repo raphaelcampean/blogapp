@@ -8,5 +8,9 @@
 
     <%= turbo_frame_tag "comment_section_#{comment.id}" %>
     <%= render partial: "comments/comments", locals: { comments: comment.replies } %>
+
+    <div class="d-flex justify-content-end">
+      <%= link_to "Denunciar", new_comment_report_path(comment), class: "btn btn-outline-danger btn-sm" %>
+    <div>
   </div>
 <% end %>
