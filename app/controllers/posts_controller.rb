@@ -9,8 +9,14 @@ class PostsController < ApplicationController
 
   def create
     post = current_user.posts.build(post_params)
-    post.save
-    redirect_to posts_path
+
+    if post.save
+      flash[:notice] = "Post criado com sucesso!"
+      redirect_to posts_path(post)
+    else
+      flash[:alert] = "Erro ao criar post!"
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show

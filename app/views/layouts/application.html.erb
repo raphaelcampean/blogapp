@@ -25,7 +25,11 @@
           <% end %>
         </ul>
       </nav>
+
     </header>
+    <div class="container">
+      <%= render 'shared/flash_messages' %>
+    </div>
 
     <main class="bg-white container mt-4 p-3 rounded border shadow-lg">
       <%= yield %>
